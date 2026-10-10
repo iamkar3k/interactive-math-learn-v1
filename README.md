@@ -17,10 +17,17 @@ npm run build    # production build in dist/
 npm run preview  # serve the production build
 ```
 
+## Deployment
+
+Every push to `main` builds the site and publishes it to GitHub Pages (`.github/workflows/deploy.yml`). Pull requests run the build only. One-time setup: in the repo go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+
+The site is served at `https://iamkar3k.github.io/interactive-math-learn-v1/`.
+
 ## Project structure
 
 ```
 index.html              Landing page markup
+vite.config.js          Vite config (relative base for GitHub Pages)
 src/main.js             Entry point, mounts the three lessons
 src/style.css           Black & yellow theme
 src/lib/stage.js        Shared canvas helpers (HiDPI sizing, play/pause loop, drawing)
