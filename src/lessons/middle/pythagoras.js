@@ -1,7 +1,7 @@
 // Lesson 3: rearrangement proof of the Pythagorean theorem.
 // Four copies of a right triangle sit inside a square of side a + b. Moving them
 // changes the empty space from one square (c²) into two squares (a² and b²).
-import { colors, setupCanvas, runLesson, text } from '../lib/stage.js';
+import { colors, setupCanvas, runLesson, text } from '../../lib/stage.js';
 
 const HOLD = 1.1;
 const MOVE = 1.4;
@@ -11,7 +11,7 @@ const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 const fmt = (x) => (Number.isInteger(x) ? String(x) : x.toFixed(2).replace(/\.?0+$/, ''));
 
 export function initGeometry(section) {
-  const canvas = section.querySelector('#geo-canvas');
+  const canvas = section.querySelector('canvas');
   const aInput = section.querySelector('#geo-a');
   const bInput = section.querySelector('#geo-b');
   const tInput = section.querySelector('#geo-t');
@@ -150,3 +150,29 @@ export function initGeometry(section) {
   bInput.addEventListener('input', lesson.redraw);
   view.onResize = lesson.redraw;
 }
+
+export const pythagoras = {
+  id: 'pythagoras',
+  title: 'Pythagoras’ theorem',
+  level: 'Middle school · Grades 6–8',
+  heading: 'Proving Pythagoras without algebra',
+  canvasLabel: 'Rearrangement proof of the Pythagorean theorem',
+  intro: 'Take four copies of the same right triangle and put them inside a square with side <b>a + b</b>. In one arrangement the empty space is a single tilted square, <b class="c-c">c²</b>. Slide the triangles around and the empty space becomes two squares, <b class="c-a">a²</b> and <b class="c-b">b²</b>. Nothing was added or taken away, so the two empty areas must be equal.',
+  tips: [
+    'Change <i>a</i> and <i>b</i>. The proof works for every right triangle.',
+    'Use the scrubber to stop partway through the rearrangement.',
+    'Try a = 3, b = 4. What is c?',
+  ],
+  formula: 'a² + b² = c²',
+  controls: `
+    <label>a <input type="range" id="geo-a" min="1" max="6" step="0.5" value="3" /></label>
+    <label>b <input type="range" id="geo-b" min="1" max="6" step="0.5" value="4" /></label>
+    <label>Scrub <input type="range" id="geo-t" min="0" max="1" step="0.001" value="0" /></label>`,
+  readouts: [
+    ['geo-a2', 'a²', 'c-a'],
+    ['geo-b2', 'b²', 'c-b'],
+    ['geo-sum', 'a² + b²'],
+    ['geo-c2', 'c²', 'c-c'],
+  ],
+  init: initGeometry,
+};

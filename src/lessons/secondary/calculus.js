@@ -1,5 +1,5 @@
 // Lesson 2: Riemann sums converge to the exact area under a curve.
-import { colors, setupCanvas, runLesson, text, line, dot } from '../lib/stage.js';
+import { colors, setupCanvas, runLesson, text, line, dot } from '../../lib/stage.js';
 
 const CURVES = {
   sq: { f: (x) => x * x, a: 0, b: 2, exact: 8 / 3, yMin: 0, yMax: 4.2, label: 'f(x) = x²', ticks: [0, 1, 2] },
@@ -10,7 +10,7 @@ const SAMPLE = { left: 0, mid: 0.5, right: 1 };
 const MAX_N = 100;
 
 export function initCalculus(section) {
-  const canvas = section.querySelector('#calc-canvas');
+  const canvas = section.querySelector('canvas');
   const nInput = section.querySelector('#calc-n');
   const fnInput = section.querySelector('#calc-fn');
   const methodButtons = [...section.querySelectorAll('[data-method]')];
@@ -124,3 +124,39 @@ export function initCalculus(section) {
   );
   view.onResize = lesson.redraw;
 }
+
+export const calculus = {
+  id: 'calculus',
+  title: 'Calculus: area under a curve',
+  level: 'High school · Grades 9–12',
+  heading: 'Area under a curve, one rectangle at a time',
+  canvasLabel: 'Riemann sum rectangles approximating the area under a curve',
+  intro: 'Curved shapes are hard to measure, but rectangles are easy. Fill the area under a curve with thin rectangles and add up their areas. This is a <b>Riemann sum</b>. As you add more rectangles the error shrinks toward zero, and the limit is the <b>integral</b>.',
+  tips: [
+    'Press play and watch the error shrink as <i>n</i> grows.',
+    'Compare left, midpoint and right sums. Which one gets close fastest?',
+    'Pick the cubic: rectangles below the x-axis count as negative area.',
+  ],
+  formula: '∫ₐᵇ f(x) dx = lim<sub>n→∞</sub> Σ f(xᵢ) Δx',
+  controls: `
+    <label>Rectangles <input type="range" id="calc-n" min="1" max="100" step="1" value="4" /></label>
+    <label>Curve
+      <select id="calc-fn">
+        <option value="sq">f(x) = x² on [0, 2]</option>
+        <option value="sin">f(x) = sin x on [0, π]</option>
+        <option value="cub">f(x) = x³ − 3x² + 3 on [0, 3]</option>
+      </select>
+    </label>
+    <div class="seg" role="radiogroup" aria-label="Sample point">
+      <button data-method="left" role="radio" aria-checked="false">Left</button>
+      <button data-method="mid" role="radio" aria-checked="true" class="on">Mid</button>
+      <button data-method="right" role="radio" aria-checked="false">Right</button>
+    </div>`,
+  readouts: [
+    ['calc-nv', 'n'],
+    ['calc-sum', 'Riemann sum'],
+    ['calc-exact', 'Exact area'],
+    ['calc-err', 'Error'],
+  ],
+  init: initCalculus,
+};

@@ -1,6 +1,6 @@
 // Renders one lesson on lesson.html, chosen by ?id=<lesson id>.
 import './style.css';
-import { LESSONS } from './lessons/primary/index.js';
+import { LESSONS } from './lessons/index.js';
 
 const root = document.querySelector('#lesson-root');
 const id = new URLSearchParams(location.search).get('id');

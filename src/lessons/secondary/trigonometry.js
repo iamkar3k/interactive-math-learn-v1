@@ -1,8 +1,8 @@
 // Lesson 1: a point on the unit circle traces out sin θ and cos θ.
-import { colors, TAU, setupCanvas, runLesson, text, line, dot, canvasPoint } from '../lib/stage.js';
+import { colors, TAU, setupCanvas, runLesson, text, line, dot, canvasPoint } from '../../lib/stage.js';
 
 export function initTrig(section) {
-  const canvas = section.querySelector('#trig-canvas');
+  const canvas = section.querySelector('canvas');
   const speedInput = section.querySelector('#trig-speed');
   const cosInput = section.querySelector('#trig-cos');
   const out = {
@@ -148,3 +148,28 @@ export function initTrig(section) {
   cosInput.addEventListener('change', lesson.redraw);
   view.onResize = lesson.redraw;
 }
+
+export const trigonometry = {
+  id: 'trigonometry',
+  title: 'Trigonometry & sine waves',
+  level: 'High school · Grades 9–12',
+  heading: 'Where sine waves come from',
+  canvasLabel: 'Unit circle animation that traces a sine wave',
+  intro: 'A point moving around a circle of radius 1 has a <b class="c-sin">height</b> and a <b class="c-cos">horizontal distance</b> from the center. Those two numbers are <b class="c-sin">sin θ</b> and <b class="c-cos">cos θ</b>. If you plot the height over time, you get a sine wave.',
+  tips: [
+    'Drag the point around the circle to set θ yourself.',
+    'Pause at θ = 90°. Why is sin θ exactly 1 there?',
+    'Check that sin²θ + cos²θ stays 1 at every angle.',
+  ],
+  formula: 'sin²θ + cos²θ = 1',
+  controls: `
+    <label>Speed <input type="range" id="trig-speed" min="0.1" max="3" step="0.1" value="1" /></label>
+    <label class="check"><input type="checkbox" id="trig-cos" checked /> Show cosine</label>`,
+  readouts: [
+    ['trig-theta', 'θ'],
+    ['trig-sin', 'sin θ', 'c-sin'],
+    ['trig-cosv', 'cos θ', 'c-cos'],
+    ['trig-id', 'sin² + cos²'],
+  ],
+  init: initTrig,
+};

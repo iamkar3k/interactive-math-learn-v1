@@ -1,7 +1,6 @@
 // Topic catalog shown in the "Pick a topic" grid.
-// A topic with `lesson` links to its interactive lesson (a section on this
-// page or a lesson.html page);
-// the rest are listed as coming soon.
+// Each topic links to its interactive lesson page; a topic without `lesson`
+// is shown as coming soon.
 
 export const LEVELS = [
   { id: 'all', label: 'All levels' },
@@ -21,22 +20,22 @@ export const TOPICS = [
   { title: 'Measurement', level: 'primary', glyph: 'cm', blurb: 'Measure a pencil with a ruler in centimetres and millimetres.', lesson: 'lesson.html?id=measurement' },
 
   // Middle school
-  { title: 'Negative numbers', level: 'middle', glyph: '−n', blurb: 'Walk left of zero on the number line to add and subtract negatives.' },
-  { title: 'Ratios & proportions', level: 'middle', glyph: 'a:b', blurb: 'Mix paint colours and keep the ratio the same as the batch grows.' },
-  { title: 'Area & perimeter', level: 'middle', glyph: '▭', blurb: 'Stretch rectangles and triangles and watch area and perimeter change.' },
-  { title: 'Angles', level: 'middle', glyph: '∠', blurb: 'Open a protractor and learn acute, right, obtuse and straight angles.' },
-  { title: 'Solving equations', level: 'middle', glyph: 'x=', blurb: 'Keep the balance level to solve for x, one step at a time.' },
-  { title: 'Coordinate plane', level: 'middle', glyph: '(x,y)', blurb: 'Plot points in four quadrants and play coordinate treasure hunt.' },
-  { title: 'Probability', level: 'middle', glyph: 'P(A)', blurb: 'Roll dice and flip coins thousands of times to see chance settle down.' },
-  { title: 'Pythagoras’ theorem', level: 'middle', glyph: 'a²+b²', blurb: 'Slide four triangles around to prove a² + b² = c² without algebra.', lesson: '#geometry' },
+  { title: 'Negative numbers', level: 'middle', glyph: '−n', blurb: 'Walk left of zero on the number line to add and subtract negatives.', lesson: 'lesson.html?id=negatives' },
+  { title: 'Ratios & proportions', level: 'middle', glyph: 'a:b', blurb: 'Mix paint and keep the ratio the same as the batches grow.', lesson: 'lesson.html?id=ratios' },
+  { title: 'Area & perimeter', level: 'middle', glyph: '▭', blurb: 'Stretch rectangles and triangles and watch area and perimeter change.', lesson: 'lesson.html?id=area' },
+  { title: 'Angles', level: 'middle', glyph: '∠', blurb: 'Open a protractor and learn acute, right, obtuse and straight angles.', lesson: 'lesson.html?id=angles' },
+  { title: 'Solving equations', level: 'middle', glyph: 'x=', blurb: 'Keep the balance level to solve for x, one step at a time.', lesson: 'lesson.html?id=equations' },
+  { title: 'Coordinate plane', level: 'middle', glyph: '(x,y)', blurb: 'Plot points in four quadrants: across first, then up or down.', lesson: 'lesson.html?id=coordinates' },
+  { title: 'Probability', level: 'middle', glyph: 'P(A)', blurb: 'Flip coins and roll dice thousands of times to see chance settle down.', lesson: 'lesson.html?id=probability' },
+  { title: 'Pythagoras’ theorem', level: 'middle', glyph: 'a²+b²', blurb: 'Slide four triangles around to prove a² + b² = c² without algebra.', lesson: 'lesson.html?id=pythagoras' },
 
   // High school
-  { title: 'Linear functions & slope', level: 'secondary', glyph: 'y=mx', blurb: 'Drag a line and watch slope and intercept change its equation.' },
-  { title: 'Quadratics & parabolas', level: 'secondary', glyph: 'x²', blurb: 'Change a, b and c to move and stretch a parabola and find its roots.' },
-  { title: 'Trigonometry & sine waves', level: 'secondary', glyph: 'sin', blurb: 'A point on the unit circle traces out sine and cosine waves.', lesson: '#trig' },
-  { title: 'Circle theorems', level: 'secondary', glyph: '⊙', blurb: 'Move points around a circle and see which angles never change.' },
-  { title: 'Vectors', level: 'secondary', glyph: '→', blurb: 'Add, scale and split arrows to understand direction and magnitude.' },
-  { title: 'Statistics & data', level: 'secondary', glyph: 'μ', blurb: 'Drag data points and watch the mean, median and spread react.' },
-  { title: 'Exponential growth', level: 'secondary', glyph: 'eˣ', blurb: 'Compare doubling with adding and see why growth curves explode.' },
-  { title: 'Calculus: area under a curve', level: 'secondary', glyph: '∫', blurb: 'Fill a curve with rectangles until the sum becomes the integral.', lesson: '#calculus' },
+  { title: 'Linear functions & slope', level: 'secondary', glyph: 'y=mx', blurb: 'Drag a line and watch slope and intercept change its equation.', lesson: 'lesson.html?id=linear' },
+  { title: 'Quadratics & parabolas', level: 'secondary', glyph: 'x²', blurb: 'Change a, b and c to move and stretch a parabola and find its roots.', lesson: 'lesson.html?id=quadratics' },
+  { title: 'Trigonometry & sine waves', level: 'secondary', glyph: 'sin', blurb: 'A point on the unit circle traces out sine and cosine waves.', lesson: 'lesson.html?id=trigonometry' },
+  { title: 'Circle theorems', level: 'secondary', glyph: '⊙', blurb: 'Move points around a circle and see which angles never change.', lesson: 'lesson.html?id=circles' },
+  { title: 'Vectors', level: 'secondary', glyph: '→', blurb: 'Add, scale and split arrows to understand direction and magnitude.', lesson: 'lesson.html?id=vectors' },
+  { title: 'Statistics & data', level: 'secondary', glyph: 'μ', blurb: 'Drag data points and watch the mean, median and spread react.', lesson: 'lesson.html?id=statistics' },
+  { title: 'Exponential growth', level: 'secondary', glyph: 'eˣ', blurb: 'Compare doubling with adding and see why growth curves explode.', lesson: 'lesson.html?id=exponential' },
+  { title: 'Calculus: area under a curve', level: 'secondary', glyph: '∫', blurb: 'Fill a curve with rectangles until the sum becomes the integral.', lesson: 'lesson.html?id=calculus' },
 ];
