@@ -17,6 +17,7 @@
       <span>MathMotion</span>
     </a>
     <nav class="nav">
+      <a href="#topics">Topics</a>
       <a href="#trig">Trigonometry</a>
       <a href="#calculus">Calculus</a>
       <a href="#geometry">Geometry</a>
@@ -27,22 +28,31 @@
     <section class="hero">
       <p class="eyebrow">Interactive math lessons</p>
       <h1>See the math move.<br /><span class="grad">Then make it yours.</span></h1>
-      <p class="lede">Formulas make sense once you can see them. Press play, drag the shapes, move the sliders, and watch a few big ideas from trigonometry, calculus and geometry take shape.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#trig">Start playing</a>
-        <a class="btn btn-ghost" href="#how">How it works</a>
-      </div>
-      <ul class="hero-stats" aria-label="What's inside">
-        <li><strong>3</strong> interactive lessons</li>
-        <li><strong>0</strong> sign-ups needed</li>
-        <li><strong>∞</strong> ways to experiment</li>
+      <p class="lede">Formulas make sense once you can see them. Press play, drag the shapes and move the sliders. There are topics for every level, from primary school to high school.</p>
+      <ul class="steps" aria-label="How it works">
+        <li><span>1</span><div><b>Watch</b><small>Press play and follow one idea at a time.</small></div></li>
+        <li><span>2</span><div><b>Play</b><small>Drag, slide and pause to change the inputs.</small></div></li>
+        <li><span>3</span><div><b>Understand</b><small>Live numbers link each picture to its formula.</small></div></li>
       </ul>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#topics">Start playing</a>
+      </div>
     </section>
 
-    <section id="how" class="how">
-      <div class="how-step"><span>1</span><h3>Watch</h3><p>Press play and follow the animation. Each one shows a single idea.</p></div>
-      <div class="how-step"><span>2</span><h3>Play</h3><p>Drag, slide and pause. Change the inputs and see what happens to the result.</p></div>
-      <div class="how-step"><span>3</span><h3>Understand</h3><p>The live readouts tie each picture back to the formula you'll use in class.</p></div>
+    <section id="topics" class="topics" aria-labelledby="topics-title">
+      <div class="topics-head">
+        <div>
+          <h2 id="topics-title">Pick a topic</h2>
+          <p>From counting in primary school to calculus in senior years. Choose your level, then pick a topic to play.</p>
+        </div>
+        <label class="search">
+          <span class="sr-only">Search topics</span>
+          <input type="search" id="topic-search" placeholder="Search topics…" autocomplete="off" />
+        </label>
+      </div>
+      <div class="levels" role="group" aria-label="Filter by school level" id="topic-levels"></div>
+      <div class="topic-grid" id="topic-grid"></div>
+      <p class="topic-empty" id="topic-empty" hidden>No topics match that search.</p>
     </section>
 
     <!-- Lesson 1: Trigonometry -->
@@ -146,13 +156,14 @@
 
     <section class="closing">
       <h2>More lessons coming</h2>
-      <p>Vectors, probability, complex numbers and Fourier series are next on the list, each with its own interactive visual.</p>
-      <a class="btn btn-primary" href="#top">Back to top</a>
+      <p>Topics marked “Coming soon” are being built next, each with its own interactive visual.</p>
+      <a class="btn btn-primary" href="#topics">Browse all topics</a>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>MathMotion · Built for curious students</p>
+    <p class="credit">Developed by <a href="https://github.com/iamkar3k">iamkar3k</a></p>
   </footer>
 
   <script type="module" src="/src/main.js"></script>
