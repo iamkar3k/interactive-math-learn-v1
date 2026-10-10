@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MathMotion: Learn Math by Playing</title>
+  <meta name="description" content="Interactive visual lessons that help students understand trigonometry, calculus and geometry by playing with animations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="MathMotion home">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M3 16 Q 9.5 2 16 16 T 29 16" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span>MathMotion</span>
+    </a>
+    <nav class="nav">
+      <a href="#trig">Trigonometry</a>
+      <a href="#calculus">Calculus</a>
+      <a href="#geometry">Geometry</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Interactive math lessons</p>
+      <h1>See the math move.<br /><span class="grad">Then make it yours.</span></h1>
+      <p class="lede">Formulas make sense once you can see them. Press play, drag the shapes, move the sliders, and watch a few big ideas from trigonometry, calculus and geometry take shape.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#trig">Start playing</a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
+      </div>
+      <ul class="hero-stats" aria-label="What's inside">
+        <li><strong>3</strong> interactive lessons</li>
+        <li><strong>0</strong> sign-ups needed</li>
+        <li><strong>∞</strong> ways to experiment</li>
+      </ul>
+    </section>
+
+    <section id="how" class="how">
+      <div class="how-step"><span>1</span><h3>Watch</h3><p>Press play and follow the animation. Each one shows a single idea.</p></div>
+      <div class="how-step"><span>2</span><h3>Play</h3><p>Drag, slide and pause. Change the inputs and see what happens to the result.</p></div>
+      <div class="how-step"><span>3</span><h3>Understand</h3><p>The live readouts tie each picture back to the formula you'll use in class.</p></div>
+    </section>
+
+    <!-- Lesson 1: Trigonometry -->
+    <section id="trig" class="lesson" data-lesson="trig">
+      <div class="lesson-text">
+        <p class="tag tag-1">Lesson 1 · Trigonometry</p>
+        <h2>Where sine waves come from</h2>
+        <p>A point moving around a circle of radius 1 has a <b class="c-sin">height</b> and a <b class="c-cos">horizontal distance</b> from the center. Those two numbers are <b class="c-sin">sin θ</b> and <b class="c-cos">cos θ</b>. If you plot the height over time, you get a sine wave.</p>
+        <ul class="tips">
+          <li>Drag the point around the circle to set θ yourself.</li>
+          <li>Pause at θ = 90°. Why is sin θ exactly 1 there?</li>
+          <li>Check that sin²θ + cos²θ stays 1 at every angle.</li>
+        </ul>
+        <div class="formula">sin²θ + cos²θ = 1</div>
+      </div>
+      <div class="lesson-stage">
+        <canvas id="trig-canvas" aria-label="Unit circle animation that traces a sine wave"></canvas>
+        <div class="controls">
+          <button class="play" data-action="play" aria-label="Pause">❚❚</button>
+          <label>Speed <input type="range" id="trig-speed" min="0.1" max="3" step="0.1" value="1" /></label>
+          <label class="check"><input type="checkbox" id="trig-cos" checked /> Show cosine</label>
+        </div>
+        <div class="readouts">
+          <div><span>θ</span><output id="trig-theta">0°</output></div>
+          <div><span class="c-sin">sin θ</span><output id="trig-sin">0.000</output></div>
+          <div><span class="c-cos">cos θ</span><output id="trig-cosv">1.000</output></div>
+          <div><span>sin² + cos²</span><output id="trig-id">1.000</output></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lesson 2: Calculus -->
+    <section id="calculus" class="lesson reverse" data-lesson="calculus">
+      <div class="lesson-text">
+        <p class="tag tag-2">Lesson 2 · Calculus</p>
+        <h2>Area under a curve, one rectangle at a time</h2>
+        <p>Curved shapes are hard to measure, but rectangles are easy. Fill the area under a curve with thin rectangles and add up their areas. This is a <b>Riemann sum</b>. As you add more rectangles the error shrinks toward zero, and the limit is the <b>integral</b>.</p>
+        <ul class="tips">
+          <li>Press play and watch the error shrink as <i>n</i> grows.</li>
+          <li>Compare left, midpoint and right sums. Which one gets close fastest?</li>
+          <li>Pick the cubic: rectangles below the x-axis count as negative area.</li>
+        </ul>
+        <div class="formula">∫ₐᵇ f(x) dx = lim<sub>n→∞</sub> Σ f(xᵢ) Δx</div>
+      </div>
+      <div class="lesson-stage">
+        <canvas id="calc-canvas" aria-label="Riemann sum rectangles approximating the area under a curve"></canvas>
+        <div class="controls">
+          <button class="play" data-action="play" aria-label="Pause">❚❚</button>
+          <label>Rectangles <input type="range" id="calc-n" min="1" max="100" step="1" value="4" /></label>
+          <label>Curve
+            <select id="calc-fn">
+              <option value="sq">f(x) = x² on [0, 2]</option>
+              <option value="sin">f(x) = sin x on [0, π]</option>
+              <option value="cub">f(x) = x³ − 3x² + 3 on [0, 3]</option>
+            </select>
+          </label>
+          <div class="seg" role="radiogroup" aria-label="Sample point">
+            <button data-method="left" role="radio" aria-checked="false">Left</button>
+            <button data-method="mid" role="radio" aria-checked="true" class="on">Mid</button>
+            <button data-method="right" role="radio" aria-checked="false">Right</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div><span>n</span><output id="calc-nv">4</output></div>
+          <div><span>Riemann sum</span><output id="calc-sum">0</output></div>
+          <div><span>Exact area</span><output id="calc-exact">0</output></div>
+          <div><span>Error</span><output id="calc-err">0</output></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lesson 3: Geometry -->
+    <section id="geometry" class="lesson" data-lesson="geometry">
+      <div class="lesson-text">
+        <p class="tag tag-3">Lesson 3 · Geometry</p>
+        <h2>Proving Pythagoras without algebra</h2>
+        <p>Take four copies of the same right triangle and put them inside a square with side <b>a + b</b>. In one arrangement the empty space is a single tilted square, <b class="c-c">c²</b>. Slide the triangles around and the empty space becomes two squares, <b class="c-a">a²</b> and <b class="c-b">b²</b>. Nothing was added or taken away, so the two empty areas must be equal.</p>
+        <ul class="tips">
+          <li>Change <i>a</i> and <i>b</i>. The proof works for every right triangle.</li>
+          <li>Use the scrubber to stop partway through the rearrangement.</li>
+          <li>Try a = 3, b = 4. What is c?</li>
+        </ul>
+        <div class="formula">a² + b² = c²</div>
+      </div>
+      <div class="lesson-stage">
+        <canvas id="geo-canvas" aria-label="Rearrangement proof of the Pythagorean theorem"></canvas>
+        <div class="controls">
+          <button class="play" data-action="play" aria-label="Pause">❚❚</button>
+          <label>a <input type="range" id="geo-a" min="1" max="6" step="0.5" value="3" /></label>
+          <label>b <input type="range" id="geo-b" min="1" max="6" step="0.5" value="4" /></label>
+          <label>Scrub <input type="range" id="geo-t" min="0" max="1" step="0.001" value="0" /></label>
+        </div>
+        <div class="readouts">
+          <div><span class="c-a">a²</span><output id="geo-a2">9</output></div>
+          <div><span class="c-b">b²</span><output id="geo-b2">16</output></div>
+          <div><span>a² + b²</span><output id="geo-sum">25</output></div>
+          <div><span class="c-c">c²</span><output id="geo-c2">25</output></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2>More lessons coming</h2>
+      <p>Vectors, probability, complex numbers and Fourier series are next on the list, each with its own interactive visual.</p>
+      <a class="btn btn-primary" href="#top">Back to top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>MathMotion · Built for curious students</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
