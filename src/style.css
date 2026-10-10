@@ -184,3 +184,26 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Lesson pages */
+.crumbs { padding: 28px 0 0; font-size: 14px; color: var(--muted); }
+.crumbs a { color: var(--accent); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.lesson-page { border-top: 0; padding-top: 20px; grid-template-columns: 1fr 1.4fr; }
+.lesson-page h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 16px; }
+.lesson-nav { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0 64px; }
+.lesson-link {
+  display: flex; flex-direction: column; gap: 2px; text-decoration: none; font-weight: 600;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; max-width: 48%;
+  transition: border-color .2s;
+}
+.lesson-link small { color: var(--muted); font-weight: 500; font-size: 12px; }
+.lesson-link.next { text-align: right; margin-left: auto; }
+.lesson-link:hover { border-color: var(--accent); }
+.lesson-missing { text-align: center; padding: 96px 0; }
+.lesson-missing p { color: var(--muted); }
+.c-ones { color: var(--soft); }
+.controls .seg { flex-shrink: 0; }
+@media (max-width: 860px) {
+  .lesson-page { grid-template-columns: 1fr; }
+}

@@ -1,6 +1,6 @@
 # interactive-math-learn-v1
 
-Learn maths through interactive visuals. **MathMotion** is a landing page with a topic picker covering primary school (grades 1–5), middle school (6–8) and high school (9–12), filterable by level and searchable. Three topics have interactive lessons today:
+Learn maths through interactive visuals. **MathMotion** is a landing page with a topic picker covering primary school (grades 1–5), middle school (6–8) and high school (9–12), filterable by level and searchable. Ten topics have interactive lessons today. The seven primary-school lessons each have their own page (`lesson.html?id=…`): counting & place value, addition & subtraction, multiplication arrays, fractions, shapes & symmetry, telling time and measurement. The three on the home page are:
 
 1. **Trigonometry: where sine waves come from.** A point on the unit circle traces sin θ and cos θ. Drag the point to set the angle.
 2. **Calculus: Riemann sums.** Rectangles fill the area under a curve, and the error shrinks as the count grows. Switch between left, midpoint and right sums and between three curves.
@@ -27,6 +27,9 @@ The site is served at `https://iamkar3k.github.io/interactive-math-learn-v1/`.
 
 ```
 index.html              Landing page markup
+lesson.html             Page that shows one lesson, chosen by ?id=
+src/lesson-page.js      Renders a lesson page from its definition
+src/lessons/primary/    Primary-school lessons (index.js lists them in order)
 vite.config.js          Vite config (relative base for GitHub Pages)
 src/main.js             Entry point, mounts the topic picker and the three lessons
 src/topics.js           Topic catalog (add topics here; `lesson` links one to its interactive section)

@@ -74,7 +74,13 @@ export function runLesson(section, { step, draw }) {
   }).observe(section);
 
   syncButton();
-  return { redraw, pause: () => setPlaying(false) };
+  return {
+    redraw,
+    pause: () => setPlaying(false),
+    get playing() {
+      return playing;
+    },
+  };
 }
 
 export function text(ctx, str, x, y, { color = colors.muted, size = 12, align = 'center', baseline = 'middle', weight = 500, mono = false } = {}) {
@@ -107,3 +113,6 @@ export function canvasPoint(canvas, event) {
   const rect = canvas.getBoundingClientRect();
   return { x: event.clientX - rect.left, y: event.clientY - rect.top };
 }
+
+export const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+export const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);

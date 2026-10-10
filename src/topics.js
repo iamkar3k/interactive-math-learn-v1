@@ -1,5 +1,6 @@
 // Topic catalog shown in the "Pick a topic" grid.
-// A topic with `lesson` links to an interactive lesson on this page;
+// A topic with `lesson` links to its interactive lesson (a section on this
+// page or a lesson.html page);
 // the rest are listed as coming soon.
 
 export const LEVELS = [
@@ -11,13 +12,13 @@ export const LEVELS = [
 
 export const TOPICS = [
   // Primary
-  { title: 'Counting & place value', level: 'primary', glyph: '123', blurb: 'Group blocks into ones, tens and hundreds to see how numbers are built.' },
-  { title: 'Addition & subtraction', level: 'primary', glyph: '+−', blurb: 'Hop along a number line and watch numbers combine and take away.' },
-  { title: 'Multiplication arrays', level: 'primary', glyph: '×', blurb: 'Rows times columns: see why 3 × 4 is the same as 4 × 3.' },
-  { title: 'Fractions', level: 'primary', glyph: '½', blurb: 'Slice pizzas and bars to compare halves, thirds and quarters.' },
-  { title: 'Shapes & symmetry', level: 'primary', glyph: '◇', blurb: 'Fold and flip shapes to find their lines of symmetry.' },
-  { title: 'Telling time', level: 'primary', glyph: '3:15', blurb: 'Turn the clock hands and read the time in hours and minutes.' },
-  { title: 'Measurement', level: 'primary', glyph: 'cm', blurb: 'Measure length, mass and capacity with drag-and-drop rulers and scales.' },
+  { title: 'Counting & place value', level: 'primary', glyph: '123', blurb: 'Group blocks into ones, tens and hundreds to see how numbers are built.', lesson: 'lesson.html?id=counting' },
+  { title: 'Addition & subtraction', level: 'primary', glyph: '+−', blurb: 'Hop along a number line and watch numbers combine and take away.', lesson: 'lesson.html?id=addition' },
+  { title: 'Multiplication arrays', level: 'primary', glyph: '×', blurb: 'Rows times columns: see why 3 × 4 is the same as 4 × 3.', lesson: 'lesson.html?id=multiplication' },
+  { title: 'Fractions', level: 'primary', glyph: '½', blurb: 'Slice pizzas and bars to compare halves, thirds and quarters.', lesson: 'lesson.html?id=fractions' },
+  { title: 'Shapes & symmetry', level: 'primary', glyph: '◇', blurb: 'Fold and flip shapes to find their lines of symmetry.', lesson: 'lesson.html?id=symmetry' },
+  { title: 'Telling time', level: 'primary', glyph: '3:15', blurb: 'Turn the clock hands and read the time in hours and minutes.', lesson: 'lesson.html?id=clock' },
+  { title: 'Measurement', level: 'primary', glyph: 'cm', blurb: 'Measure a pencil with a ruler in centimetres and millimetres.', lesson: 'lesson.html?id=measurement' },
 
   // Middle school
   { title: 'Negative numbers', level: 'middle', glyph: '−n', blurb: 'Walk left of zero on the number line to add and subtract negatives.' },
